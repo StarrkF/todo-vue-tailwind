@@ -84,7 +84,8 @@ tr{
 
 td{
     @apply
-    px-5
+    px-10
+    text-center
 }
 th{
     @apply
@@ -120,4 +121,28 @@ th{
     bg-slate-50
     focus:bg-white
     focus:outline-none
+}
+.toggle{
+    @apply
+    absolute 
+    w-full 
+
+}
+.switch{
+    @apply
+    shadow-lg
+    w-16 h-10 
+    flex items-center 
+    p-1
+    bg-rose-600
+    shadow-rose-400
+    rounded-full duration-300 ease-in-out 
+    peer-checked:bg-green-600
+    peer-checked:shadow-green-400
+    after:w-8 
+    after:h-8 
+    after:bg-white 
+    after:rounded-full 
+    after:duration-500 
+    peer-checked:after:translate-x-6
 }

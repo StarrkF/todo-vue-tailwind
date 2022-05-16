@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from "vue";
+import { ref , onMounted } from "vue";
+import axios from 'axios'
 
 const title = ref("TODO APP");
 const showUpdate = ref(false)
@@ -33,10 +34,49 @@ const updateItem = ()=> {
   showAdd.value=true
   showUpdate.value=false
 }
+
+const check = (e,index)=> {
+  if(e.target.checked)
+  {
+    console.log('checked')
+    console.log(index)
+    items.value[index].status=true
+  }
+  else
+  {
+    console.log('unchecked')
+    console.log(index)
+    items.value[index].status=false
+  }
+}
+
+// const getTodos = () =>{
+//   let response= axios.get('http://localhost:8000/api/todos/1')
+//      console.log(response.data.data)
+  
+// }
+
+//  const getTodos = async () => {
+//         let response= await axios.get('http://localhost:8000/api/todos/3')
+//         items.value=response.data.data
+//     }
+
+
+//   onMounted(getTodos())
+
+
 </script>
 
 <template>
+
+
+
+
+
+
 <div class="card">
+  <!-- {{items}} -->
+  <button class="btn btn-primary" @click="getTodos">Ekle</button>
     <div class="title">{{ title }}</div>
     <div class="add">
 
@@ -59,14 +99,21 @@ const updateItem = ()=> {
         <tr>
           <th>Number</th>
           <th>To Do</th>
+          <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <template v-for="({ todo }, index) in items" :key="index">
+        <template v-for="({ todo, status }, index) in items" :key="index">
           <tr>
             <td>{{ index + 1 }}</td>
             <td>{{ todo }}</td>
+            <td>
+              <label class="relative">
+                <input type="checkbox" :checked="status" class="toggle sr-only peer" @change="check($event,index)"/>
+                <span class="switch"></span>
+              </label>
+            </td>
             <td>
               <button class="btn btn-secondary" @click="getUpdate(index)">Update</button>
               <button class="btn btn-danger" @click="deleteItem(index)">Delete</button>  

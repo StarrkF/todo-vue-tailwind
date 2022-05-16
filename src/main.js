@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import './assets/index.css'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -12,6 +14,8 @@ library.add(far);
 import { dom } from "@fortawesome/fontawesome-svg-core";
 dom.watch();
 
-createApp(App)
-.component("font-awesome-icon", FontAwesomeIcon)
-.mount('#app')
+
+const app=createApp(App)
+app.component("font-awesome-icon", FontAwesomeIcon)
+app.use(VueAxios,axios)
+app.mount('#app')
