@@ -27,3 +27,6 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### [Live Preview] (https://starrkf.github.io/todo-vue-tailwind/)
+
