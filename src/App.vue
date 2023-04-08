@@ -1,14 +1,20 @@
 <script setup>
 import { ref , onMounted } from "vue";
-import axios from 'axios'
 
 const title = ref("TODO APP");
 const showUpdate = ref(false)
 const showAdd = ref(true)
-const items = ref([]);
+const items = ref({});
 const newTodo = ref(null);
 const updateId=ref(null);
 const updateTodo = ref(null);
+
+onMounted(() => {
+    items.value = {
+      
+    }
+})
+
 const insert = () => {
   
     items.value.push({ todo: newTodo.value });
