@@ -5,22 +5,16 @@
     <link rel="icon" href="/todo-vue-tailwind/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
-    <script type="module" crossorigin src="/todo-vue-tailwind/assets/index.c341f08f.js"></script>
-    <link rel="stylesheet" href="/todo-vue-tailwind/assets/index.39c6e69a.css">
+    <script type="module" crossorigin src="/todo-vue-tailwind/assets/index.c13d5059.js"></script>
+    <link rel="stylesheet" href="/todo-vue-tailwind/assets/index.d5d7b0c6.css">
   </head>
   <body class="dark:bg-slate-900 px-20">
-    <div class="my-6 mx-4 float-right">
-      <label class="relative inline-flex items-center cursor-pointer">
-        <input type="checkbox"  class="sr-only peer" id="changeTheme">
-        <div class="w-11 h-6 bg-slate-700 peer-focus:ring-blue-300 rounded-full dark:bg-slate-300 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-slate-400"></div>
-        <span class="ml-3 text-sm font-medium text-dark dark:text-light">Change Theme</span>
-      </label>
-    </div>
     <div id="app">
-
+      <div class="mt-4">
+        <theme-switcher></theme-switcher>
+      </div>
       <Todo></Todo>
     </div>
     
-    <script src="/src/vanilla.js"></script>
   </body>
 </html>
