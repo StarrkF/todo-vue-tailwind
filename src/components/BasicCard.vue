@@ -8,7 +8,15 @@ const props = defineProps({
     glow: {
         type: Boolean,
         default: false
-    }
+    },
+    header: {
+        type: String,
+        default: ""
+    },
+    content: {
+        type: String,
+        default: ""
+    },
 })
 
 </script>
@@ -16,8 +24,8 @@ const props = defineProps({
 <template>
    <div>
     <div class="card" :class="glow ? 'border-glow' : ''">
-        <h5 class="card-header">{{ title }}</h5>
-        <div class="card-content">
+        <h5 class="card-header" :class="header">{{ title }}</h5>
+        <div class="card-content" :class="content">
             <slot></slot>
         </div>
    </div>

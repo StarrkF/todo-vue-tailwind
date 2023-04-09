@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-     <button class="btn" :class="color" >
+     <button class="btn" :class="color">
          <slot></slot>
      </button>
 </template>
@@ -19,6 +19,7 @@ const props = defineProps({
 .btn {
     @apply
     py-2 px-6
+    mx-2
     shadow-md
     rounded-full
     duration-300

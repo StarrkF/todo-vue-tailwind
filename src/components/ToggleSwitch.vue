@@ -49,7 +49,6 @@ const onInput = (value) => {
 .toggle-primary {
     @apply
     bg-green-600
-    dark:bg-slate-300
     peer-checked:bg-red-600
     after:bg-white
     after:border-gray-400
