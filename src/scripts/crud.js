@@ -1,7 +1,7 @@
 export default function useCrud() {
 
     const index = () => {
-        return JSON.parse(localStorage.getItem('todos')) ?? []
+        return JSON.parse(localStorage.getItem('todos')).slice().reverse() ?? []
     }
 
     const store = (item) => {
