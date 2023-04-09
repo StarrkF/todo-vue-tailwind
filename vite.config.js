@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base:'/todo-vue-tailwind/',
+  base:'/todo-vue-tailwind/',
   plugins: [vue({
     template: {
       compilerOptions: {
