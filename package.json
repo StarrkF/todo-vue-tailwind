@@ -7,11 +7,6 @@
     "preview": "vite preview --port 5050"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
-    "@fortawesome/free-brands-svg-icons": "^6.1.1",
-    "@fortawesome/free-regular-svg-icons": "^6.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "axios": "^0.27.2",
     "daisyui": "^2.14.2",
     "tw-elements": "^1.0.0-alpha12",
@@ -21,10 +16,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.1",
     "autoprefixer": "^10.4.5",
-    "gh-pages": "^5.0.0",
     "postcss": "^8.4.12",
     "tailwindcss": "^3.0.24",
     "vite": "^2.9.5"
-  },
-  "deploy": "npm run build && gh-pages -d dist"
+  }
 }
