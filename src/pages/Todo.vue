@@ -89,10 +89,10 @@ watchEffect(() => {
             <custom-button color="btn-danger" class="flex-1 mt-4 sm:mt-0 ml-0 sm:ml-4" @click="cancel">Cancel</custom-button>
         </div>
 
-        <div class="overflow-y-auto max-h-[37rem] sm:max-h-full">
+        <div class="overflow-y-auto max-h-64 sm:max-h-full">
             <datatable :head="head">
             <tr v-for="item in data" class="tr-body" :class="{'tr-completed': item.status}">
-                <td>{{ item.id }}</td>
+                <th>{{ item.id }}</th>
                 <td class="w-2/3">{{ item.goal }}</td>
                 <td>
                     <toggle-switch v-model="item.status" @change="updateStatus(item.id)"></toggle-switch>
