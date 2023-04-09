@@ -18,10 +18,10 @@ const props = defineProps({
 <style scoped>
 .btn {
     @apply
-    py-2 px-6
-    mx-2
+    w-full
+    py-2 px-4
     shadow-md
-    rounded-full
+    rounded-2xl
     duration-300
     active:scale-110
     hover:scale-105
@@ -72,8 +72,8 @@ const props = defineProps({
     hover:shadow-slate-800
 
     dark:bg-gradient-to-r
-    dark:from-slate-50
-    dark:to-slate-300
+    dark:from-slate-200
+    dark:to-slate-400
     dark:shadow-slate-200
     dark:hover:shadow-slate-200
     dark:text-slate-800

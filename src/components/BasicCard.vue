@@ -38,10 +38,13 @@ const props = defineProps({
     p-8
     m-4
     text-dark 
-    bg-slate-100 
+    bg-gradient-to-r from-gray-100 to-gray-300
     border-2
     rounded-lg
-    dark:bg-slate-700 
+    dark:bg-gradient-to-r
+    dark:from-gray-800 
+    dark:via-gray-900 
+    dark:to-black
     dark:border-black
     dark:text-light
     duration-500

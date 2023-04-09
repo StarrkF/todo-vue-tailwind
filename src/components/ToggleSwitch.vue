@@ -48,13 +48,13 @@ const onInput = (value) => {
 }
 .toggle-primary {
     @apply
-    bg-green-600
-    peer-checked:bg-red-600
+    bg-red-600
+    peer-checked:bg-green-600
     after:bg-white
     after:border-gray-400
     shadow-md
-    shadow-green-500
-    peer-checked:shadow-red-500
+    shadow-red-500
+    peer-checked:shadow-green-500
 }
 
 .toggle-theme {

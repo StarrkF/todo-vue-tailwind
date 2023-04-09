@@ -12,9 +12,9 @@ const props = defineProps({
 </script>
 
 <template>
-    
+   
 <div class="table-responsive">
-    <table>
+    <table class="table-auto h-full">
         <thead>
             <tr class="dark:bg-slate-800 dark:border-b-slate-600 bg-light border-b-2">
                 <th v-for="item in head" scope="col">{{ item }}</th>
@@ -35,12 +35,12 @@ const props = defineProps({
 
 .table-responsive {
     @apply
-    relative overflow-x-auto shadow-md sm:rounded-lg
+    relative overflow-x-auto sm:rounded-lg
 }
 
 table {
     @apply
-    text-center w-full text-sm text-gray-500 dark:text-gray-400 shadow-glow shadow-neutral-200 dark:shadow-dark 
+    text-center w-full text-sm text-gray-500 dark:text-light shadow-glow  shadow-neutral-200 dark:shadow-dark 
 }
 
 thead {
@@ -50,6 +50,16 @@ thead {
 .tr-body {
     @apply
     bg-white border-b dark:bg-slate-900 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-slate-800 duration-300
+}
+
+.tr-completed {
+    @apply
+    bg-slate-200
+    hover:bg-slate-300
+    border-b-slate-300    
+    dark:bg-gray-800
+    dark:hover:bg-gray-700
+    dark:border-gray-700
 }
 
 th {
