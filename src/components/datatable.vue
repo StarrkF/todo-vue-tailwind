@@ -40,7 +40,7 @@ const props = defineProps({
 
 table {
     @apply
-    text-center w-full text-sm text-gray-500 dark:text-light shadow-glow  shadow-neutral-200 dark:shadow-dark 
+    text-center w-full text-sm text-dark dark:text-light shadow-glow  shadow-neutral-200 dark:shadow-dark 
 }
 
 thead {
@@ -60,6 +60,16 @@ thead {
     dark:bg-gray-800
     dark:hover:bg-gray-700
     dark:border-gray-700
+}
+
+.tr-selected {
+    @apply
+    bg-slate-300
+    hover:bg-slate-400
+    border-b-slate-400    
+    dark:bg-gray-700
+    dark:hover:bg-gray-600
+    dark:border-gray-600
 }
 
 th {

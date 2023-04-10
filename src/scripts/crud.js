@@ -1,7 +1,7 @@
 export default function useCrud() {
 
     const index = () => {
-        return JSON.parse(localStorage.getItem('todos')).slice().reverse() ?? []
+        return JSON.parse(localStorage.getItem('todos')) ?? []
     }
 
     const store = (item) => {
@@ -11,7 +11,6 @@ export default function useCrud() {
             id: parseInt(lastId) + 1,
             ...item
         }
-        console.log(newData)
         data.push(newData)
         write(data);
     }
