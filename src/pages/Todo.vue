@@ -9,7 +9,7 @@ import BaseInput from '../components/BaseInput.vue';
 
 const { index, show, store, update, destroy } = useCrud()
 
-const head = ref(['Id', 'Goal', 'Status', 'Action'])
+const head = ref(['Id', 'Goal', 'Completion Status', 'Action'])
 const data = ref()
 const goal = ref()
 const todo = ref({
@@ -90,24 +90,22 @@ watchEffect(() => {
 <template>
     <basic-card title="Todo App" class="mt-12" :glow="true" header="text-center">
         <div v-show="storeArea" class="flex flex-col sm:flex-row mb-6">
-            <custom-button v-show="selectedTodo.length > 0" color="btn-danger" class="flex-1 mt-4 sm:mt-0 mr-0 sm:mr-4" @click="multipleDelete">Delete Selected</custom-button>
-            <base-input label="Save Goal" class="max-w-6xl" v-model="goal"></base-input>
+            <custom-button v-show="selectedTodo.length > 0" color="btn-danger" class="flex-1 mb-4 sm:mb-0 mr-0 sm:mr-4" @click="multipleDelete">Delete Selected</custom-button>
+            <base-input label="Save Goal" class="max-w-6xl" v-model="goal" @keyup.enter="storeTodo"></base-input>
             <custom-button color="btn-theme" class="flex-1 mt-4 sm:mt-0 ml-0 sm:ml-4" @click="storeTodo">Add Todo</custom-button>
         </div>
         <div v-show="editArea" class="flex flex-col sm:flex-row mb-6">
-            <base-input label="Edit Goal" class="max-w-6xl" v-model="todo.goal"></base-input>
-            <custom-button color="btn-secondary" class="flex-1 mt-4 sm:mt-0 ml-0 sm:ml-4"
-                @click="updateTodo">Save</custom-button>
-            <custom-button color="btn-danger" class="flex-1 mt-4 sm:mt-0 ml-0 sm:ml-4"
-                @click="cancel">Cancel</custom-button>
+            <base-input label="Edit Goal" class="max-w-6xl" v-model="todo.goal" @keyup.enter="updateTodo"></base-input>
+            <custom-button color="btn-secondary" class="flex-1 mt-4 sm:mt-0 ml-0 sm:ml-4" @click="updateTodo">Save</custom-button>
+            <custom-button color="btn-danger" class="flex-1 mt-4 sm:mt-0 ml-0 sm:ml-4" @click="cancel">Cancel</custom-button>
         </div>
-        <div class="overflow-y-auto max-h-64 sm:max-h-full">
+        <div class="overflow-y-auto">
             <datatable :head="head">
                 <tr v-for="item in data" class="tr-body" :class="{ 'tr-completed': item.status, 'tr-selected': selectedTodo.includes(item.id) }">
                     <th>
                         <div class="flex items-center mb-4">
-                            <input type="checkbox" v-model="selectedTodo" :value="item.id" class="w-5 h-5 accent-slate-800 dark:accent-blue-700 outline-none  mr-2">
-                                 {{ item.id }}
+                            <input type="checkbox" v-model="selectedTodo" :value="item.id" :id="'ch'+ item.id" class="w-5 h-5 hover:cursor-pointer accent-slate-800 dark:accent-blue-700 outline-none  mr-2">
+                             <label role="button" :for="'ch'+ item.id">{{ item.id }}</label>    
                         </div>
 
                     </th>
