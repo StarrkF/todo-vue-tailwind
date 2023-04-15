@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory  } from 'vue-router'
+import { createRouter, createWebHashHistory  } from 'vue-router'
 
 const router = createRouter({
-    history: createWebHistory('/todo-vue-tailwind/'),
+    history: createWebHashHistory('/todo-vue-tailwind/'),
     routes: [
         {
             path: '/',
