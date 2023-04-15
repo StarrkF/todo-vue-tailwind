@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, reactive, ref, toRaw, watchEffect } from 'vue';
+import { ref, toRaw, watchEffect } from 'vue';
 import useCrud from '../scripts/crud';
 import BasicCard from '../components/BasicCard.vue';
 import Datatable from '../components/datatable.vue';
@@ -88,6 +88,12 @@ watchEffect(() => {
 </script>
 
 <template>
+    <div class="w-96 my-10 mx-auto">
+        <router-link to="/preview">
+            <custom-button color="btn-theme">Preview</custom-button>
+        </router-link>
+    </div>
+   
     <basic-card title="Todo App" class="mt-12" :glow="true" header="text-center">
         <div v-show="storeArea" class="flex flex-col sm:flex-row mb-6">
             <custom-button v-show="selectedTodo.length > 0" color="btn-danger" class="flex-1 mb-4 sm:mb-0 mr-0 sm:mr-4" @click="multipleDelete">Delete Selected</custom-button>
