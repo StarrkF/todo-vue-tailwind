@@ -88,7 +88,7 @@ watchEffect(() => {
 </script>
 
 <template>
-    <div class="w-96 my-10 mx-auto">
+    <div class="w-full sm:w-1/2 lg:w-1/4 my-10 mx-auto">
         <router-link to="/preview">
             <custom-button color="btn-theme">Preview</custom-button>
         </router-link>

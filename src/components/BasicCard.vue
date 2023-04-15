@@ -25,7 +25,7 @@ const props = defineProps({
    <div>
     <div class="card" :class="glow ? 'border-glow' : ''">
         <h5 class="card-header" :class="header">{{ title }}</h5>
-        <div class="card-content" :class="content">
+        <div class="my-8 sm:my-20" :class="content">
             <slot></slot>
         </div>
    </div>
@@ -64,7 +64,7 @@ const props = defineProps({
     mb-8
     text-3xl
     font-bold 
-    tracking-tight 
+    tracking-wide
     text-dark
     dark:text-light
 }
