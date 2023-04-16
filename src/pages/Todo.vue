@@ -16,7 +16,6 @@ const todo = ref({
     id: null,
     goal: null,
     status: null,
-    selected: false
 })
 const selectedTodo = ref([])
 const storeArea = ref(true)
@@ -80,6 +79,12 @@ const cancel = () => {
     storeArea.value = true
 }
 
+const toggleSelect = (id) => {
+  selectedTodo.value.includes(id) 
+  ? selectedTodo.value = selectedTodo.value.filter(item => item !== id)
+  : selectedTodo.value.push(id);
+}
+
 watchEffect(() => {
     getData()
 })
@@ -88,12 +93,11 @@ watchEffect(() => {
 </script>
 
 <template>
-    <div class="w-full sm:w-1/2 lg:w-1/4 my-10 mx-auto">
+    <div class="w-full sm:w-1/2 lg:w-1/4 my-5 mx-auto">
         <router-link to="/preview">
             <custom-button color="btn-theme">Preview</custom-button>
         </router-link>
     </div>
-   
     <basic-card title="Todo App" class="mt-12" :glow="true" header="text-center">
         <div v-show="storeArea" class="flex flex-col sm:flex-row mb-6">
             <custom-button v-show="selectedTodo.length > 0" color="btn-danger" class="flex-1 mb-4 sm:mb-0 mr-0 sm:mr-4" @click="multipleDelete">Delete Selected</custom-button>
@@ -107,14 +111,8 @@ watchEffect(() => {
         </div>
         <div class="overflow-y-auto">
             <datatable :head="head">
-                <tr v-for="item in data" class="tr-body" :class="{ 'tr-completed': item.status, 'tr-selected': selectedTodo.includes(item.id) }">
-                    <th>
-                        <div class="flex items-center mb-4">
-                            <input type="checkbox" v-model="selectedTodo" :value="item.id" :id="'ch'+ item.id" class="w-5 h-5 hover:cursor-pointer accent-slate-800 dark:accent-blue-700 outline-none  mr-2">
-                             <label role="button" :for="'ch'+ item.id">{{ item.id }}</label>    
-                        </div>
-
-                    </th>
+                <tr v-for="item in data"  @click="toggleSelect(item.id)" role="button" class="tr-body"  :class="{ 'tr-completed': item.status, 'tr-selected': selectedTodo.includes(item.id) }">
+                    <th>{{ item.id }} </th>
                     <td class="w-2/3">{{ item.goal }}</td>
                     <td>
                         <toggle-switch v-model="item.status" @change="updateStatus(item.id)"></toggle-switch>

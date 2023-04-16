@@ -12,7 +12,12 @@ const router = createRouter({
             path: '/preview',
             name: 'preview',
             component: () => import('../pages/Preview.vue')
-        }
+        },
+        {
+            path: '/detail/:id',
+            name: 'detail',
+            component: () => import('../pages/Detail.vue')
+          }
     ]
 })
 
