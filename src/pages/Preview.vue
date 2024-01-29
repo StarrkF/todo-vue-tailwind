@@ -57,9 +57,7 @@ watchEffect(() => {
       v-for="todo in todos" 
       :title="'Todo '+ todo.id" 
       :content="todo.goal"
-      @click="toggleSelect(todo.id)" 
-      :class="{ 'selected-todo': selectedTodo.includes(todo.id) }" 
-      :more-button="{linkName:'detail', param: todo.id, buttonName:'Detail'}"
+      :class="{ 'selected-todo': selectedTodo.includes(todo.id) }"
       />
     </div>
   </basic-card>
